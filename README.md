@@ -1,11 +1,12 @@
 # Kidopi Labs - Covid 19
 
-Uma aplicação web que possibilite ao usuário obter informações sobre os casos de mortes por Covid desenvolvida para processo seletivo da Kidopi.
+Uma aplicação web que possibilita ao usuário obter informações sobre os casos de mortes por Covid desenvolvida para processo seletivo da Kidopi.
 
 ## Tecnologias Utilizadas
 
 * Docker
 * PHP
+* MySQL
 * Javascript
 * HTML
 * CSS
@@ -35,7 +36,7 @@ Para rodar este projeto, é necessário que você possua o Docker instalado na m
 <p align = "justify"> 1. Clone o projeto: </p>
 
 ```
- git@github.com:Thalis-Freitas/kidopi-labs-covid-19.git
+ git clone git@github.com:Thalis-Freitas/kidopi-labs-covid-19.git
 ```
 
 <p align = "justify"> 2. Entre na pasta do projeto: </p>
@@ -52,4 +53,4 @@ Para rodar este projeto, é necessário que você possua o Docker instalado na m
 
 <p> 4. Acesse <a href="http://localhost:8000/"> http://localhost:8000/</a></p>
 
-#### Você pode finalizar a execução da app quando desejar, para isso pressione CTRL+C
+#### Você pode finalizar a execução da app quando desejar, para isso pressione CTRL+C no terminal
