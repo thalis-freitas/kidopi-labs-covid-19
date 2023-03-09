@@ -1,6 +1,7 @@
 :root {
   --dark: #333131;
   --light: #eee;
+  --black: #000;
 }
 
 body {
@@ -17,7 +18,7 @@ h1 {
 h1, .data-section {
   padding: 10px;
   background: var(--light);
-  color: #000;
+  color: var(--black);
   font-family: 'Patua One', cursive;
   font-size: 1.2em;
 }
@@ -39,6 +40,16 @@ h1, .data-section {
   box-shadow: 0 0 20px var(--light);
   width: 25vw;
   cursor: pointer;
+  transition: background-color 1s ease-in-out;
+}
+
+.country:hover{
+  background-color: var(--black);
+}
+
+.selected-country{
+  border: var(--light);
+  background-color: var(--black);
 }
 
 @media screen and (max-width: 420px) {
