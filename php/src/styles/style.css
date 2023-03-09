@@ -1,4 +1,4 @@
-:root{
+:root {
   --dark: #333131;
   --light: #eee;
 }
@@ -41,12 +41,12 @@ h1, .data-section {
   cursor: pointer;
 }
 
-@media screen and (max-width: 420px){
+@media screen and (max-width: 420px) {
   .countries-container {
     flex-direction: column;
   }
 
-  .country{
+  .country {
     margin: 3% auto;
   }
 }
