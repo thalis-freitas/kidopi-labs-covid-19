@@ -25,7 +25,6 @@ h1, .data-section {
 
 .countries-container, .container {
   margin: 40px;
-  justify-content: space-evenly;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -34,7 +33,6 @@ h1, .data-section {
 }
 
 .country {
-  border: 1px solid var(--light);
   padding: 5px 15px;
   margin: 10px;
   box-shadow: 0 0 20px var(--light);
@@ -43,21 +41,26 @@ h1, .data-section {
   transition: background-color 1s ease-in-out;
 }
 
-.country:hover{
+.country:hover, .selected-country{
   background-color: var(--black);
 }
 
-.selected-country{
-  border: var(--light);
-  background-color: var(--black);
-}
+@media screen and (max-width: 500px) {
+  .container{
+    margin: 20px;
+  }
 
-@media screen and (max-width: 420px) {
   .countries-container {
     flex-direction: column;
   }
 
   .country {
     margin: 3% auto;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .container{
+    margin: 5px;
   }
 }

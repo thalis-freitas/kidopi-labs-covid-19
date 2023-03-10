@@ -2,6 +2,7 @@ const APP = {
   countries: ['Australia', 'Brazil', 'Canada'],
   totalCases: 0,
   totalDeaths: 0,
+  states: [],
 
   getData: async(url) => {
     return await fetch(url)
@@ -20,6 +21,15 @@ const APP = {
     for(let i = 0; i < Object.keys(data).length; i++ ){
       this.totalCases += data[i].Confirmados
       this.totalDeaths += data[i].Mortos
+    }
+  },
+
+  getStatesData: function(data){
+    this.states = []
+    for(let i = 0; i < Object.keys(data).length; i++ ){
+      this.states[i] = { state: data[i].ProvinciaEstado,
+                         confirmed: data[i].Confirmados,
+                         dead: data[i].Mortos}
     }
   }
 }

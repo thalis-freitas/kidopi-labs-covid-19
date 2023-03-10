@@ -1,15 +1,18 @@
 "use strict";
 
+let container = document.querySelector('.container')
+
 APP.countries.forEach((country) => {
   let element = document.createElement('div')
   document.querySelector('#countries').appendChild(element)
   element.classList.add('country')
   element.textContent = country
-  element.addEventListener('click', mountCountryData)
+  element.addEventListener('click', displayDataByCountry)
 })
 
-async function mountCountryData(){
+async function displayDataByCountry(){
   clearDataSection()
+  clearStatesSection()
   uncheckCountry()
   this.classList.add('selected-country')
 
@@ -28,6 +31,10 @@ async function mountCountryData(){
   elements[0].innerHTML = `Dados do país: <b>${country}</b>`
   elements[1].innerHTML = `Total de casos confirmados: ${APP.totalCases}`
   elements[2].innerHTML = `Total de mortes: ${APP.totalDeaths}`
+
+  APP.getStatesData(data)
+  let statesSection = await createStatesSection()
+  displayDataByState(statesSection)
 }
 
 function clearDataSection(){
@@ -45,6 +52,6 @@ function uncheckCountry(){
 async function createDataSection(){
   let dataSection = document.createElement('section')
   dataSection.classList.add('data-section')
-  document.querySelector('.container').appendChild(dataSection)
+  container.appendChild(dataSection)
   return dataSection
 }
