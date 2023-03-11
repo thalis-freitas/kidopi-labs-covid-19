@@ -4,6 +4,7 @@
 
 #states-section{
   margin: 5px 0;
+  padding-bottom: 50px;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: auto auto auto;
