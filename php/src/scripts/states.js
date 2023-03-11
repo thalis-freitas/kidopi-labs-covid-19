@@ -48,7 +48,7 @@ function animateStates(){
   const statesForAnimation = document.querySelectorAll('[data-anime]')
   window.addEventListener('scroll', () =>{
     statesForAnimation.forEach(state =>{
-      if((window.pageYOffset + window.innerHeight * .9) > state.offsetTop){
+      if((window.pageYOffset + window.innerHeight * .95) > state.offsetTop){
         state.classList.add('animate-states')   
       }
     })
