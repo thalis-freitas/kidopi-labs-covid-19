@@ -23,7 +23,6 @@ async function createStatesSection(){
 
 function displayDataByState(statesSection){
   createStatesHeader(statesSection)
-
   for(let state of APP.states){
     let stateName = document.createElement('span')
     let casesInState = document.createElement('span')
@@ -39,16 +38,29 @@ function displayDataByState(statesSection){
 
     document.querySelectorAll('span').forEach((element) => {
       element.className = 'state-data'
+      element.setAttribute('data-anime', 'left')
     })
   }
+  animateStates()
+}
 
-  function createStatesHeader(statesSection){
-    const statesHeader = ['Estado', 'Casos', 'Mortes']
+function animateStates(){
+  const statesForAnimation = document.querySelectorAll('[data-anime]')
+  window.addEventListener('scroll', () =>{
+    statesForAnimation.forEach(state =>{
+      if((window.pageYOffset + window.innerHeight * .9) > state.offsetTop){
+        state.classList.add('animate-states')   
+      }
+    })
+  })
+}
 
-    for(let i in statesHeader){
-      let headerText = document.createElement('span')
-      headerText.textContent = statesHeader[i]
-      statesSection.appendChild(headerText)
-    }
+function createStatesHeader(statesSection){
+  const statesHeader = ['Estado', 'Casos', 'Mortes']
+
+  for(let i in statesHeader){
+    let headerText = document.createElement('span')
+    headerText.textContent = statesHeader[i]
+    statesSection.appendChild(headerText)
   }
 }

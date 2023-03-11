@@ -18,9 +18,23 @@ span:nth-child(-n+3){
   padding: 5px;
 }
 
+[data-anime] {
+  opacity: 0;
+  transition: .5s ease-in-out;
+}
+
+[data-anime="left"] {
+  transform: translate3d(-50px, 0, 0);
+}
+
+[data-anime].animate-states {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 @media screen and (max-width: 300px) {
   #states-section{
-    font-size: 0.9em;
+    font-size: .9em;
     grid-gap: 2px;
   }
 }

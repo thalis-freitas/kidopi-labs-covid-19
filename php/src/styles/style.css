@@ -46,10 +46,6 @@ h1, .data-section {
 }
 
 @media screen and (max-width: 500px) {
-  .container{
-    margin: 20px;
-  }
-
   .countries-container {
     flex-direction: column;
   }
@@ -61,6 +57,6 @@ h1, .data-section {
 
 @media screen and (max-width: 340px) {
   .container{
-    margin: 5px;
+    margin: 5px 5px 40px 5px;
   }
 }
