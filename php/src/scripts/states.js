@@ -23,7 +23,7 @@ async function createStatesSection(){
 
 function displayDataByState(statesSection){
   createStatesHeader(statesSection)
-  for(let state of APP.states){
+  for(let state of COUNTRIES_DATA.states){
     let stateName = document.createElement('span')
     let casesInState = document.createElement('span')
     let deathsInState = document.createElement('span')

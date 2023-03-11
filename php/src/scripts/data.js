@@ -1,5 +1,5 @@
-const APP = {
-  countries: ['Australia', 'Brazil', 'Canada'],
+const COUNTRIES_DATA = {
+  lockMode: false,
   totalCases: 0,
   totalDeaths: 0,
   states: [],
