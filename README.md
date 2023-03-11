@@ -14,7 +14,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 ## Tarefas
 <div align="justify">
 
-- [ ] 1 - Criar uma página que permita escolher entre três países (Brazil, Canada ou Australia) e se comunique com a API-Covid-19. Ela também deverá mostrar o número total de casos confirmados e mortes do país selecionado. Ao selecionar um país, a página também deve exibir os dados de cada estado.
+- [x] 1 - Criar uma página que permita escolher entre três países (Brazil, Canada ou Australia) e se comunique com a API-Covid-19. Ela também deverá mostrar o número total de casos confirmados e mortes do país selecionado. Ao selecionar um país, a página também deve exibir os dados de cada estado.
 
 - [ ] 2 - Armazenar em um banco de dados (MySQL) a data e hora de todos os acessos que o script fez à API-Covid-19, bem como qual o país escolhido para a consulta.
 
@@ -45,7 +45,7 @@ Para rodar este projeto, é necessário que você possua o Docker instalado na m
  cd kidopi-labs-covid-19
 ```
 
-<p align = "justify"> 3. Inicie a app: </p>
+<p align = "justify"> 3. Com o Docker Desktop rodando, inicie a app: </p>
 
 ```
  docker compose up
