@@ -1,11 +1,12 @@
 # Kidopi Labs - Covid 19
 
-Uma aplicação web que possibilite ao usuário obter informações sobre os casos de mortes por Covid desenvolvida para processo seletivo da Kidopi.
+Uma aplicação web que possibilita ao usuário obter informações sobre os casos de mortes por Covid desenvolvida para processo seletivo da Kidopi.
 
 ## Tecnologias Utilizadas
 
 * Docker
 * PHP
+* MySQL
 * Javascript
 * HTML
 * CSS
@@ -13,7 +14,7 @@ Uma aplicação web que possibilite ao usuário obter informações sobre os cas
 ## Tarefas
 <div align="justify">
 
-- [ ] 1 - Criar uma página que permita escolher entre três países (Brazil, Canada ou Australia) e se comunique com a API-Covid-19. Ela também deverá mostrar o número total de casos confirmados e mortes do país selecionado. Ao selecionar um país, a página também deve exibir os dados de cada estado.
+- [x] 1 - Criar uma página que permita escolher entre três países (Brazil, Canada ou Australia) e se comunique com a API-Covid-19. Ela também deverá mostrar o número total de casos confirmados e mortes do país selecionado. Ao selecionar um país, a página também deve exibir os dados de cada estado.
 
 - [ ] 2 - Armazenar em um banco de dados (MySQL) a data e hora de todos os acessos que o script fez à API-Covid-19, bem como qual o país escolhido para a consulta.
 
@@ -35,7 +36,7 @@ Para rodar este projeto, é necessário que você possua o Docker instalado na m
 <p align = "justify"> 1. Clone o projeto: </p>
 
 ```
- git@github.com:Thalis-Freitas/kidopi-labs-covid-19.git
+ git clone git@github.com:Thalis-Freitas/kidopi-labs-covid-19.git
 ```
 
 <p align = "justify"> 2. Entre na pasta do projeto: </p>
@@ -44,7 +45,7 @@ Para rodar este projeto, é necessário que você possua o Docker instalado na m
  cd kidopi-labs-covid-19
 ```
 
-<p align = "justify"> 3. Inicie a app: </p>
+<p align = "justify"> 3. Com o Docker Desktop rodando, inicie a app: </p>
 
 ```
  docker compose up
@@ -52,4 +53,4 @@ Para rodar este projeto, é necessário que você possua o Docker instalado na m
 
 <p> 4. Acesse <a href="http://localhost:8000/"> http://localhost:8000/</a></p>
 
-#### Você pode finalizar a execução da app quando desejar, para isso pressione CTRL+C
+#### Você pode finalizar a execução da app quando desejar, para isso pressione CTRL+C no terminal
