@@ -4,12 +4,13 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 ## Tecnologias Utilizadas
 
-* Docker
 * PHP
 * MySQL
-* Javascript
+* Laravel
+* Docker
 * HTML
 * CSS
+* Javascript
 
 ## Tarefas
 <div align="justify">
@@ -45,12 +46,20 @@ Para rodar este projeto, é necessário que você possua o Docker instalado na m
  cd kidopi-labs-covid-19
 ```
 
-<p align = "justify"> 3. Com o Docker Desktop rodando, inicie a app: </p>
+<p align = "justify"> 3. Execute o comando para configurar o alias do shell que permitirá executar os comandos do Sail com mais facilidade: </p>
 
 ```
- docker compose up
+ alias sail="vendor/bin/sail"
 ```
 
-<p> 4. Acesse <a href="http://localhost:8000/"> http://localhost:8000/</a></p>
+<p align = "justify"> 4. Com o Docker Desktop rodando, inicie a app: </p>
 
-#### Você pode finalizar a execução da app quando desejar, para isso pressione CTRL+C no terminal
+```
+ sail up -d
+```
+
+<p align = "justify"> Comando para derrubar a app: </p>
+
+```
+ sail down
+```
