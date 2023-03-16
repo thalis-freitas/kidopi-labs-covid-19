@@ -28,37 +28,59 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 :construction: Em desenvolvimento...
 </h4>
 
-## Requisitos
+## Configurações necessárias
 
-Para rodar este projeto, é necessário que você possua o Docker instalado na máquina que será utilizada. Caso ainda não possua, você pode seguir as instruções da documentação oficial para fazer a instalação: [Docker-Desktop](https://www.docker.com/products/docker-desktop/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [PHP 8.1](https://www.php.net/)
+- [Laravel 10.3](https://laravel.com/docs/10.x)
+- [Composer 2.5.4](https://getcomposer.org/)
+
 
 ## Passo a passo para rodar o projeto
 
-<p align = "justify"> 1. Clone o projeto: </p>
+1. Clone o projeto:
 
 ```
  git clone git@github.com:Thalis-Freitas/kidopi-labs-covid-19.git
 ```
 
-<p align = "justify"> 2. Entre na pasta do projeto: </p>
+2. Entre na pasta do projeto:
 
 ```
  cd kidopi-labs-covid-19
 ```
 
-<p align = "justify"> 3. Execute o comando para configurar o alias do shell que permitirá executar os comandos do Sail com mais facilidade: </p>
+3. Renomeie o arquivo `.env.example` para `.env`:
+
+```
+ mv .env.example .env
+```
+
+4. Instale as dependências:
+
+```
+ composer install
+```
+
+5. Gere uma nova chave `APP_KEY` para o arquivo `.env`:
+
+```
+ sail artisan key:generate
+```
+
+6. Execute o comando para configurar o alias do shell que permitirá executar os comandos do Sail com mais facilidade:
 
 ```
  alias sail="vendor/bin/sail"
 ```
 
-<p align = "justify"> 4. Com o Docker Desktop rodando, inicie a app: </p>
+7. Com o Docker Desktop rodando, inicie a app:
 
 ```
  sail up -d
 ```
 
-<p align = "justify"> Comando para derrubar a app: </p>
+- Comando para derrubar a app:
 
 ```
  sail down
