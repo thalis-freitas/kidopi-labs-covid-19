@@ -23,6 +23,9 @@ class AccessesController extends Controller
     public function store(AccessesStoreRequest $request)
     {
         $access = $this->access->create($request->all());
-        return response()->json($access, 201);
+        return response()->json([
+            "message" => "Acesso registrado com sucesso!",
+            "data" => $access
+        ], 201);
     }
 }

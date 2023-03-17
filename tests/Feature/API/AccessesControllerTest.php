@@ -33,15 +33,17 @@ class AccessesControllerTest extends TestCase
         $response->assertStatus(201);
 
         $response->assertJson(function(AssertableJson $json) use($access){
-            $json->hasAll(['id', 'country', 'created_at']);
-            $json->whereAll(['country' => $access['country']])->etc();
+            $json->hasAll(['message', 'data.country', 'data.created_at', 'data.id']);
+            $json->whereAll([
+                'message' => 'Acesso registrado com sucesso!',
+                'data.country' => $access['country']])->etc();
         });
     }
 
     public function test_post_validate_create_accesses(): void
     {
         $response = $this->postJson('/api/accesses', []);
-        $response->assertStatus(422);
+        $response->assertUnprocessable();
 
         $response->assertJson(function(AssertableJson $json){
             $json->hasAll(['message', 'errors']);
