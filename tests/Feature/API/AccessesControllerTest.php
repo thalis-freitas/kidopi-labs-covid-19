@@ -37,4 +37,15 @@ class AccessesControllerTest extends TestCase
             $json->whereAll(['country' => $access['country']])->etc();
         });
     }
+
+    public function test_post_validate_create_accesses(): void
+    {
+        $response = $this->postJson('/api/accesses', []);
+        $response->assertStatus(422);
+
+        $response->assertJson(function(AssertableJson $json){
+            $json->hasAll(['message', 'errors']);
+            $json->where('errors.country.0', 'The country field is required.');
+        });
+    }
 }

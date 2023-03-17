@@ -20,7 +20,7 @@ class AccessesController extends Controller
         return response()->json($access);
     }
 
-    public function store(Request $request)
+    public function store(AccessesStoreRequest $request)
     {
         $access = $this->access->create($request->all());
         return response()->json($access, 201);
