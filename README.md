@@ -9,6 +9,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
   * [Configurações necessárias](#configurações-necessárias)
   * [Passo a passo para rodar o projeto](#passo-a-passo-para-rodar-o-projeto)
   * [Documentação da API de acessos](#documentação-da-api-de-acessos)
+  * [Comando para rodar os testes da API](#comando-para-rodar-os-testes-da-api)
 
 ## Tarefas
 <div align="justify">
@@ -154,4 +155,10 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
     ]
   }
 }
+```
+
+## Comando para rodar os testes da API
+
+```
+ sail artisan test
 ```
