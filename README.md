@@ -2,15 +2,14 @@
 
 Uma aplicação web que possibilita ao usuário obter informações sobre os casos de mortes por Covid desenvolvida para processo seletivo da Kidopi.
 
-## Tecnologias Utilizadas
+## Sumário
 
-* PHP
-* MySQL
-* Laravel
-* Docker
-* HTML
-* CSS
-* Javascript
+  * [Tarefas](#tarefas)
+  * [Tecnologias Utilizadas](#tecnologias-utilizadas)
+  * [Configurações necessárias](#configurações-necessárias)
+  * [Passo a passo para rodar o projeto](#passo-a-passo-para-rodar-o-projeto)
+  * [Documentação da API de acessos](#documentação-da-api-de-acessos)
+  * [Comando para rodar os testes da API](#comando-para-rodar-os-testes-da-api)
 
 ## Tarefas
 <div align="justify">
@@ -27,6 +26,16 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 <h4 align="center">
 :construction: Em desenvolvimento...
 </h4>
+
+## Tecnologias Utilizadas
+
+* PHP
+* MySQL
+* Laravel
+* Docker
+* HTML
+* CSS
+* Javascript
 
 ## Configurações necessárias
 
@@ -84,4 +93,72 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 ```
  sail down
+```
+
+## Documentação da API de acessos
+
+### Obter último acesso
+
+**Endpoint: GET /api/accesses/last**
+
+#### Retorno `200` (Sucesso)
+
+```json
+{
+  "id":10,
+  "country":"Canada",
+  "created_at":"2023-03-17T05:03:37.000000Z"
+}
+```
+
+### Registrar um acesso
+
+**Endpoint: POST /api/accesses**
+
+#### Parâmetro que deve ser enviado para a criação de um acesso:
+
+```json
+{
+  "country":"Brazil"
+}
+```
+
+#### Retorno `200` (Sucesso)
+
+```json
+{
+  "message":"Acesso registrado com sucesso!",
+  "data":{
+    "country":"Brazil",
+    "created_at":"2023-03-17T05:40:25.000000Z",
+    "id":14
+  }
+}
+```
+
+#### Cenário de erro com parâmetro obrigatório não enviado:
+
+```json
+{
+  "country":""
+}
+```
+
+#### Retorno `422` (Unprocessable Entity)
+
+```json
+{
+  "message": "The country field is required.",
+  "errors": {
+    "country": [
+      "The country field is required."
+    ]
+  }
+}
+```
+
+## Comando para rodar os testes da API
+
+```
+ sail artisan test
 ```
