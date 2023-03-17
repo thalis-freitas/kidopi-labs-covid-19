@@ -9,4 +9,5 @@ class Access extends Model
 {
     use HasFactory;
     protected $fillable = ['country'];
+    protected $hidden = ['updated_at'];
 }

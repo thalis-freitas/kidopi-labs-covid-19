@@ -9,3 +9,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('accesses', [AccessesController::class, 'store']);
+Route::get('accesses/last', [AccessesController::class, 'last']);

@@ -14,6 +14,12 @@ class AccessesController extends Controller
     {
     }
 
+    public function last()
+    {
+        $access = $this->access->all()->sortByDesc('id')->first();
+        return response()->json($access);
+    }
+
     public function store(Request $request)
     {
         $access = $this->access->create($request->all());
