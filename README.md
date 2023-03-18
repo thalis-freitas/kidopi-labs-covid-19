@@ -10,15 +10,16 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
   * [Passo a passo para rodar o projeto](#passo-a-passo-para-rodar-o-projeto)
   * [Documentação da API de acessos](#documentação-da-api-de-acessos)
   * [Comando para rodar os testes da API](#comando-para-rodar-os-testes-da-api)
+  * [Comando para derrubar a app](#comando-para-derrubar-a-app)
 
 ## Tarefas
 <div align="justify">
 
 - [x] 1 - Criar uma página que permita escolher entre três países (Brazil, Canada ou Australia) e se comunique com a API-Covid-19. Ela também deverá mostrar o número total de casos confirmados e mortes do país selecionado. Ao selecionar um país, a página também deve exibir os dados de cada estado.
 
-- [ ] 2 - Armazenar em um banco de dados (MySQL) a data e hora de todos os acessos que o script fez à API-Covid-19, bem como qual o país escolhido para a consulta.
+- [x] 2 - Armazenar em um banco de dados (MySQL) a data e hora de todos os acessos que o script fez à API-Covid-19, bem como qual o país escolhido para a consulta.
 
-- [ ] 3 - A página deve ser criada utilizando HTML, CSS e JS. Deve exibir no rodapé da página, a data e o país procurado do último acesso à API-Covid-19.
+- [ ] 3 - A página deve ser criada utilizando HTML, CSS e JS. Deve exibir no rodapé da página, a data e o país procurado no último acesso à API-Covid-19.
 
 - [ ] Bônus - Criar uma interface web local em que o usuário possa escolher dois países diferentes. Obter os dados de covid desses países escolhidos e mostrar na interface a diferença da taxa de morte entre esses países selecionados (taxa de morte do país todo). Para esse cálculo da diferença utilize de subtração simples (TaxaPais1 - TaxaPais2). A taxa de morte pode ser calculada pela fórmula: Taxa de morte = Mortes / Confirmados.
 </div>
@@ -53,10 +54,10 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
  git clone git@github.com:Thalis-Freitas/kidopi-labs-covid-19.git
 ```
 
-2. Entre na pasta do projeto:
+2. Entre na pasta back-end do projeto:
 
 ```
- cd kidopi-labs-covid-19
+ cd kidopi-labs-covid-19/back-end/
 ```
 
 3. Renomeie o arquivo `.env.example` para `.env`:
@@ -71,31 +72,36 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
  composer install
 ```
 
-5. Gere uma nova chave `APP_KEY` para o arquivo `.env`:
-
-```
- sail artisan key:generate
-```
-
-6. Execute o comando para configurar o alias do shell que permitirá executar os comandos do Sail com mais facilidade:
+5. Execute o comando para configurar o alias do shell que permitirá executar os comandos do Sail com mais facilidade:
 
 ```
  alias sail="vendor/bin/sail"
 ```
 
-7. Com o Docker Desktop rodando, inicie a app:
+6. Com o Docker Desktop rodando, inicie a app:
 
 ```
  sail up -d
 ```
 
-- Comando para derrubar a app:
+
+7. Gere uma nova chave `APP_KEY` que será utilizada no arquivo `.env`:
 
 ```
- sail down
+ sail artisan key:generate
 ```
+
+8. Execute as migrations
+
+```
+ sail artisan migrate
+```
+
+9. Abra a página front-end/index.html em um navegador para visualizar o projeto
 
 ## Documentação da API de acessos
+
+- O caminho para consultar a API de acessos localmente é http://localhost
 
 ### Obter último acesso
 
@@ -161,4 +167,10 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 ```
  sail artisan test
+```
+
+## Comando para derrubar a app:
+
+```
+ sail down
 ```
