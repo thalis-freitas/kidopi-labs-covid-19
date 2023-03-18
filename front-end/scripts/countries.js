@@ -20,6 +20,7 @@ async function displayDataByCountry(){
     this.classList.add('selected-country')
 
     let country = this.textContent
+    await ACCESSES.postCountry(country)
     let url = `https://dev.kidopilabs.com.br/exercicio/covid.php?pais=${country}`
     let data = await COUNTRIES_DATA.getData(url)
     COUNTRIES_DATA.setCountryData(data)

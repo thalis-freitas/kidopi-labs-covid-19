@@ -10,13 +10,14 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
   * [Passo a passo para rodar o projeto](#passo-a-passo-para-rodar-o-projeto)
   * [Documentação da API de acessos](#documentação-da-api-de-acessos)
   * [Comando para rodar os testes da API](#comando-para-rodar-os-testes-da-api)
+  * [Comando para derrubar a app](#comando-para-derrubar-a-app)
 
 ## Tarefas
 <div align="justify">
 
 - [x] 1 - Criar uma página que permita escolher entre três países (Brazil, Canada ou Australia) e se comunique com a API-Covid-19. Ela também deverá mostrar o número total de casos confirmados e mortes do país selecionado. Ao selecionar um país, a página também deve exibir os dados de cada estado.
 
-- [ ] 2 - Armazenar em um banco de dados (MySQL) a data e hora de todos os acessos que o script fez à API-Covid-19, bem como qual o país escolhido para a consulta.
+- [x] 2 - Armazenar em um banco de dados (MySQL) a data e hora de todos os acessos que o script fez à API-Covid-19, bem como qual o país escolhido para a consulta.
 
 - [ ] 3 - A página deve ser criada utilizando HTML, CSS e JS. Deve exibir no rodapé da página, a data e o país procurado no último acesso à API-Covid-19.
 
@@ -53,10 +54,10 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
  git clone git@github.com:Thalis-Freitas/kidopi-labs-covid-19.git
 ```
 
-2. Entre na pasta do projeto:
+2. Entre na pasta back-end do projeto:
 
 ```
- cd kidopi-labs-covid-19
+ cd kidopi-labs-covid-19/back-end/
 ```
 
 3. Renomeie o arquivo `.env.example` para `.env`:
@@ -84,7 +85,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 ```
 
 
-7. Gere uma nova chave `APP_KEY` para o arquivo `.env`:
+7. Gere uma nova chave `APP_KEY` que será utilizada no arquivo `.env`:
 
 ```
  sail artisan key:generate
@@ -96,13 +97,11 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
  sail artisan migrate
 ```
 
-- Comando para derrubar a app:
-
-```
- sail down
-```
+9. Abra a página front-end/index.html em um navegador para visualizar o projeto
 
 ## Documentação da API de acessos
+
+- O caminho para consultar a API de acessos localmente é http://localhost
 
 ### Obter último acesso
 
@@ -168,4 +167,10 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 ```
  sail artisan test
+```
+
+## Comando para derrubar a app:
+
+```
+ sail down
 ```
