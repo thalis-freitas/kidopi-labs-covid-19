@@ -1,20 +1,20 @@
-#title-for-states{
+#title-for-states {
   margin-top: 30px;
 }
 
-#states-section{
+#states-section {
   margin: 5px 0;
-  padding-bottom: 50px;
+  padding-bottom: 90px;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: auto auto auto;
 }
 
-span:nth-child(-n+3){
+span:nth-child(-n+3) {
   background: #004b2c;
 }
 
-.state-data{
+.state-data {
   background: #006d40;
   padding: 5px;
 }
@@ -34,7 +34,7 @@ span:nth-child(-n+3){
 }
 
 @media screen and (max-width: 300px) {
-  #states-section{
+  #states-section {
     font-size: .9em;
     grid-gap: 2px;
   }

@@ -1,7 +1,7 @@
 const ACCESSES = {
   postCountry: async(country_name) => {
-    let country = { country: country_name };
-    fetch("http://localhost/api/accesses", {
+    let country = { country: country_name }
+    return await fetch("http://localhost/api/accesses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -11,10 +11,11 @@ const ACCESSES = {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(data)
+      return data.data
     })
     .catch((error) => {
-      console.error(error);
-    });
+      console.error(error)
+    })
   }
 }

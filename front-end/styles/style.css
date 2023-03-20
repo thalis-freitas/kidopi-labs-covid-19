@@ -5,6 +5,7 @@
 }
 
 body {
+  margin: 0;
   background: var(--dark);
   color: var(--light);
   text-align: center;
@@ -42,11 +43,11 @@ h1, .data-section {
   transition: background-color 1s ease-in-out;
 }
 
-.country:hover, .selected-country{
+.country:hover, .selected-country {
   background-color: var(--black);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 620px) {
   .countries-container {
     flex-direction: column;
   }
@@ -57,13 +58,13 @@ h1, .data-section {
 }
 
 @media screen and (max-width: 420px) {
-  .container{
+  .container {
     margin: 5px 5px 60px 5px;
   }
 }
 
 @media screen and (max-width: 340px) {
-  .container{
+  .container {
     margin: 5px 5px 40px 5px;
   }
 }
