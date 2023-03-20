@@ -21,7 +21,7 @@ async function displayDataByCountry(){
     let data = await prepareCountryDataForDisplay(url, country)
     await prepareStatesDataForDisplay(data)
     let lastAccessData = await ACCESSES.postCountry(country)
-    displayFooterData(lastAccessData)
+    updateFooterData(lastAccessData)
   }
   COUNTRIES_DATA.lockMode = false
 }
