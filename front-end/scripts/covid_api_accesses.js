@@ -17,5 +17,15 @@ const ACCESSES = {
     .catch((error) => {
       console.error(error)
     })
+  },
+  getLastAccess: async() => {
+    return await fetch('http://localhost/api/accesses/last')
+    .then((response) => response.json())
+    .then((data) => {
+      return data
+    })
+    .catch((error) => {
+      console.log(`Ops, ocorreu um erro ${error}`)
+    })
   }
 }

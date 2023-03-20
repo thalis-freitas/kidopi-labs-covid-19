@@ -33,6 +33,12 @@ span:nth-child(-n+3) {
   transform: translate3d(0, 0, 0);
 }
 
+@media screen and (max-width: 620px) {
+  #states-section {
+    padding-bottom: 150px;
+  }
+}
+
 @media screen and (max-width: 300px) {
   #states-section {
     font-size: .9em;

@@ -20,6 +20,8 @@ async function displayDataByCountry(){
     let url = `https://dev.kidopilabs.com.br/exercicio/covid.php?pais=${country}`
     let data = await prepareCountryDataForDisplay(url, country)
     await prepareStatesDataForDisplay(data)
+    let lastAccessData = await ACCESSES.postCountry(country)
+    displayFooterData(lastAccessData)
   }
   COUNTRIES_DATA.lockMode = false
 }
@@ -58,6 +60,7 @@ function addElementsToDataSection(elements, dataSection){
 }
 
 function clearAllData(){
+  hideFooterData()
   clearDataSection()
   clearStatesSection()
   uncheckCountry()
