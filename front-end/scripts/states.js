@@ -24,23 +24,13 @@ async function createStatesSection(){
 function displayDataByState(statesSection){
   createStatesHeader(statesSection)
   COUNTRIES_DATA.states.forEach( state => {
-    let stateName = document.createElement('span')
-    let casesInState = document.createElement('span')
-    let deathsInState = document.createElement('span')
-
-    stateName.innerHTML = state.state
-    casesInState.innerHTML = state.confirmed
-    deathsInState.innerHTML = state.dead
-
-    statesSection.appendChild(stateName)
-    statesSection.appendChild(casesInState)
-    statesSection.appendChild(deathsInState)
-
-    document.querySelectorAll('span').forEach( element => {
-      element.className = 'state-data'
-      element.setAttribute('data-anime', 'left')
-    })
+    let elements = createElements('span')
+    elements = setStateElements(elements, state)
+    statesSection.appendChild(elements[0])
+    statesSection.appendChild(elements[1])
+    statesSection.appendChild(elements[2])
   })
+  defineClassToAnimateStates()
   animateStates()
 }
 
@@ -63,4 +53,26 @@ function createStatesHeader(statesSection){
     headerText.textContent = statesHeader[i]
     statesSection.appendChild(headerText)
   }
+}
+
+function createElements(type){
+  let elements = []
+  for(let i = 0; i < 3; i++){
+    elements.push(document.createElement(type))
+  }
+  return elements
+}
+
+function setStateElements(elements, state){
+  elements[0].innerHTML = state.state
+  elements[1].innerHTML = formatValue(state.confirmed)
+  elements[2].innerHTML = formatValue(state.dead)
+  return elements
+}
+
+function defineClassToAnimateStates(){
+  document.querySelectorAll('span').forEach( element => {
+    element.className = 'state-data'
+    element.setAttribute('data-anime', 'left')
+  })
 }

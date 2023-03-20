@@ -19,7 +19,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 - [x] 2 - Armazenar em um banco de dados (MySQL) a data e hora de todos os acessos que o script fez à API-Covid-19, bem como qual o país escolhido para a consulta.
 
-- [ ] 3 - A página deve ser criada utilizando HTML, CSS e JS. Deve exibir no rodapé da página, a data e o país procurado no último acesso à API-Covid-19.
+- [x] 3 - A página deve ser criada utilizando HTML, CSS e JS. Deve exibir no rodapé da página, a data e o país procurado no último acesso à API-Covid-19.
 
 - [ ] Bônus - Criar uma interface web local em que o usuário possa escolher dois países diferentes. Obter os dados de covid desses países escolhidos e mostrar na interface a diferença da taxa de morte entre esses países selecionados (taxa de morte do país todo). Para esse cálculo da diferença utilize de subtração simples (TaxaPais1 - TaxaPais2). A taxa de morte pode ser calculada pela fórmula: Taxa de morte = Mortes / Confirmados.
 </div>
@@ -91,7 +91,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
  sail artisan key:generate
 ```
 
-8. Execute as migrations
+8. Execute as migrations:
 
 ```
  sail artisan migrate
@@ -169,7 +169,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
  sail artisan test
 ```
 
-## Comando para derrubar a app:
+## Comando para derrubar a app
 
 ```
  sail down

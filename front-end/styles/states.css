@@ -1,41 +1,47 @@
-#title-for-states{
-    margin-top: 30px;
-  }
+#title-for-states {
+  margin-top: 30px;
+}
 
-  #states-section{
-    margin: 5px 0;
-    padding-bottom: 50px;
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: auto auto auto;
-  }
+#states-section {
+  margin: 5px 0;
+  padding-bottom: 90px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: auto auto auto;
+}
 
-  span:nth-child(-n+3){
-    background: #004b2c;
-  }
+span:nth-child(-n+3) {
+  background: #004b2c;
+}
 
-  .state-data{
-    background: #006d40;
-    padding: 5px;
-  }
+.state-data {
+  background: #006d40;
+  padding: 5px;
+}
 
-  [data-anime] {
-    opacity: 0;
-    transition: .5s ease-in-out;
-  }
+[data-anime] {
+  opacity: 0;
+  transition: .5s ease-in-out;
+}
 
-  [data-anime="left"] {
-    transform: translate3d(-50px, 0, 0);
-  }
+[data-anime="left"] {
+  transform: translate3d(-50px, 0, 0);
+}
 
-  [data-anime].animate-states {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
+[data-anime].animate-states {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
 
-  @media screen and (max-width: 300px) {
-    #states-section{
-      font-size: .9em;
-      grid-gap: 2px;
-    }
+@media screen and (max-width: 620px) {
+  #states-section {
+    padding-bottom: 150px;
   }
+}
+
+@media screen and (max-width: 300px) {
+  #states-section {
+    font-size: .9em;
+    grid-gap: 2px;
+  }
+}
