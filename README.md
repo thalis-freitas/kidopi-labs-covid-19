@@ -101,7 +101,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 ## Documentação da API de acessos
 
-- O caminho para consultar a API de acessos localmente é http://localhost
+O caminho para consultar a API de acessos localmente é http://localhost
 
 ### Obter último acesso
 
@@ -111,9 +111,9 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 ```json
 {
-  "id":10,
-  "country":"Canada",
-  "created_at":"2023-03-17T05:03:37.000000Z"
+  "id":17,
+  "country":"Australia",
+  "date_time":"2023-03-20 16:21:15"
 }
 ```
 
@@ -121,11 +121,12 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 **Endpoint: POST /api/accesses**
 
-#### Parâmetro que deve ser enviado para a criação de um acesso:
+#### Os dados para a criação de um acesso devem ser enviados no seguinte formato:
 
 ```json
 {
-  "country":"Brazil"
+  "country":"Brazil",
+  "date_time":"2023-03-20 17:15:20"
 }
 ```
 
@@ -136,17 +137,18 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
   "message":"Acesso registrado com sucesso!",
   "data":{
     "country":"Brazil",
-    "created_at":"2023-03-17T05:40:25.000000Z",
-    "id":14
+    "date_time":"2023-03-20 17:15:20",
+    "id":18
   }
 }
 ```
 
-#### Cenário de erro com parâmetro obrigatório não enviado:
+#### Cenário de erro com parâmetros inválidos:
 
 ```json
 {
-  "country":""
+  "country":"",
+  "date_time":"20-03-2023 17:20:34"
 }
 ```
 
@@ -154,10 +156,13 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 ```json
 {
-  "message": "The country field is required.",
+  "message": "O campo país não pode ficar em branco. (and 1 more error)",
   "errors": {
     "country": [
-      "The country field is required."
+      "O campo país não pode ficar em branco."
+    ],
+    "date_time": [
+      "O campo data deve estar no formato Y-m-d H:i:s."
     ]
   }
 }

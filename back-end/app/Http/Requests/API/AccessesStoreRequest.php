@@ -22,7 +22,17 @@ class AccessesStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'country' => 'required'
+            'country' => 'required',
+            'date_time' => 'required|date_format:Y-m-d H:i:s'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'country.required' => 'O campo país não pode ficar em branco.',
+            'date_time.required' => 'O campo data não pode ficar em branco.',
+            'date_time.date_format' => 'O campo data deve estar no formato Y-m-d H:i:s.'
         ];
     }
 }
