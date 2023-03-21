@@ -19,9 +19,7 @@ async function displayDataByCountry(){
     let country = this.textContent
     let url = `https://dev.kidopilabs.com.br/exercicio/covid.php?pais=${country}`
     let data = await prepareCountryDataForDisplay(url, country)
-    await prepareStatesDataForDisplay(data)
-    let lastAccessData = await ACCESSES.postCountry(country)
-    updateFooterData(lastAccessData)
+    await postAccessIfCovidApiAccessIsSuccessful(data, country)
   }
   COUNTRIES_DATA.lockMode = false
 }
@@ -68,18 +66,37 @@ function clearAllData(){
 
 async function prepareCountryDataForDisplay(url, country){
   let data = await COUNTRIES_DATA.getData(url)
-  COUNTRIES_DATA.setCountryData(data)
-  let dataSection = await createDataSection()
-  let elements = createElements('p')
-  elements = setCountryElements(elements, country)
-  addElementsToDataSection(elements, dataSection)
-  return data
+  if(data){
+    COUNTRIES_DATA.setCountryData(data)
+    let dataSection = await createDataSection()
+    let elements = createElements('p')
+    elements = setCountryElements(elements, country)
+    addElementsToDataSection(elements, dataSection)
+    return data
+  }else{
+    let dataSection = await createDataSection()
+    let errorMessage = document.createElement('p')
+    errorMessage.innerHTML = `Ops, ocorreu um erro ao carregar os dados do país ${country}`
+    dataSection.appendChild(errorMessage)
+  }
 }
 
 async function prepareStatesDataForDisplay(data){
   COUNTRIES_DATA.getStatesData(data)
   let statesSection = await createStatesSection()
   displayDataByState(statesSection)
+}
+
+async function postAccessIfCovidApiAccessIsSuccessful(data, country){
+  if(data){
+    await prepareStatesDataForDisplay(data)
+    let lastAccessData = await ACCESSES.postCountry(country)
+    updateFooterData(lastAccessData)
+  }else{
+    lastDate.style.display = 'inline-block'
+    lastCountry.style.display = 'inline-block'
+    loading.style.display = 'none'
+  }
 }
 
 function formatValue(value) {
