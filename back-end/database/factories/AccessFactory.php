@@ -17,7 +17,8 @@ class AccessFactory extends Factory
     public function definition(): array
     {
         return [
-            'country' => $this->faker->country
+            'country' => $this->faker->country,
+            'date_time' => now()->format('Y-m-d H:i:s')
         ];
     }
 }

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Access extends Model
 {
     use HasFactory;
-    protected $fillable = ['country'];
-    protected $hidden = ['updated_at'];
+    protected $fillable = ['country', 'date_time'];
+    protected $hidden = ['created_at', 'updated_at'];
 }

@@ -9,7 +9,7 @@ async function displayDataInFooter(){
   let data = await ACCESSES.getLastAccess()
 
   loading.style.display = 'none'
-  lastDate.innerHTML = `Data: ${formatValue(new Date(data.created_at))}`
+  lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
   lastCountry.innerHTML = `País: ${data.country}`
   
   footer.appendChild(lastDate)
@@ -26,10 +26,16 @@ function hideFooterData(){
   loading.style.display = 'inline-block'
 }
 
-function displayFooterData(data){
+function updateFooterData(data){
   loading.style.display = 'none'
-  lastDate.innerHTML = `Data: ${formatValue(new Date(data.created_at))}`
+  lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
   lastCountry.innerHTML = `País: ${data.country}`
   lastDate.style.display = 'inline-block'
   lastCountry.style.display = 'inline-block'
+}
+
+function formatDateToDisplay(dateTime){
+  let date = dateTime.split(' ')[0].split("-").reverse().join('/')
+  let time = dateTime.split(' ')[1]
+  return `${date}, ${time}`
 }
