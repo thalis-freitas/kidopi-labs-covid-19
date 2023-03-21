@@ -7,13 +7,15 @@ displayDataInFooter()
 
 async function displayDataInFooter(){
   let data = await ACCESSES.getLastAccess()
-
-  loading.style.display = 'none'
-  lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
-  lastCountry.innerHTML = `País: ${data.country}`
-  
-  footer.appendChild(lastDate)
-  footer.appendChild(lastCountry)
+  if(data){
+    loading.style.display = 'none'
+    lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
+    lastCountry.innerHTML = `País: ${data.country}`
+    footer.appendChild(lastDate)
+    footer.appendChild(lastCountry)
+  }else{
+    loading.innerHTML = 'Ops, ocorreu um erro ao carregar os dados'
+  }
 }
 
 function hideFooterData(){
@@ -27,11 +29,15 @@ function hideFooterData(){
 }
 
 function updateFooterData(data){
-  loading.style.display = 'none'
-  lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
-  lastCountry.innerHTML = `País: ${data.country}`
-  lastDate.style.display = 'inline-block'
-  lastCountry.style.display = 'inline-block'
+  if(data){
+    loading.style.display = 'none'
+    lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
+    lastCountry.innerHTML = `País: ${data.country}`
+    lastDate.style.display = 'inline-block'
+    lastCountry.style.display = 'inline-block'
+  }else{
+    loading.innerHTML = 'Ops, ocorreu um erro ao atualizar os dados'
+  }
 }
 
 function formatDateToDisplay(dateTime){
