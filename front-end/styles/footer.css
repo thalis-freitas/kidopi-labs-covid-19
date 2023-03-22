@@ -13,6 +13,10 @@ footer > div {
   padding: 5px;
 }
 
+.last-date, .last-country{
+  display: none;
+}
+
 .loader {
   position: relative;
   display: inline-block;

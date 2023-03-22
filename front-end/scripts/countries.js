@@ -18,8 +18,8 @@ async function displayDataByCountry(){
     this.classList.add('selected-country')
     let country = this.textContent
     let data = await prepareCountryDataForDisplay(country)
-    await prepareStatesDataForDisplay(data)
-    await postAccessIfCovidApiAccessIsSuccessful(data, country)
+    prepareStatesDataForDisplay(data)
+    postAccessIfCovidApiAccessIsSuccessful(data, country)
   }
   COUNTRIES_DATA.lockMode = false
 }
@@ -58,7 +58,6 @@ function addElementsToDataSection(elements, dataSection){
 }
 
 function clearAllData(){
-  hideFooterData()
   clearDataSection()
   clearStatesSection()
   uncheckCountry()
@@ -66,6 +65,7 @@ function clearAllData(){
 
 async function prepareCountryDataForDisplay(country){
   let data = await COUNTRIES_DATA.getData(country)
+  updateFooterData(country, new Date())
   if(data){
     COUNTRIES_DATA.setCountryData(data)
     let dataSection = await createDataSection()
@@ -89,12 +89,10 @@ async function prepareStatesDataForDisplay(data){
 
 async function postAccessIfCovidApiAccessIsSuccessful(data, country){
   if(data){
-    let lastAccessData = await ACCESSES.postCountry(country)
-    updateFooterData(lastAccessData)
+    await ACCESSES.postCountry(country)
   }else{
     lastDate.style.display = 'inline-block'
     lastCountry.style.display = 'inline-block'
-    loading.style.display = 'none'
   }
 }
 

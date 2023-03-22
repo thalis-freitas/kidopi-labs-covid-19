@@ -60,7 +60,8 @@ option2.addEventListener('change', async () => {
 
 async function setCountry(country){
   let data = await COUNTRIES_DATA.getData(country.name)
-  await postAccessIfCovidApiAccessIsSuccessful(data, country.name)
+  updateFooterData(country.name, new Date())
+  postAccessIfCovidApiAccessIsSuccessful(data, country.name)
   COUNTRIES_DATA.setCountryData(data)
   country.cases = COUNTRIES_DATA.totalCases
   country.dead = COUNTRIES_DATA.totalDeaths
