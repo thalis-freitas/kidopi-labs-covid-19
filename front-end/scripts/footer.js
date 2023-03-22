@@ -1,3 +1,5 @@
+"use strict";
+
 let footer = document.querySelector('footer')
 let loading = document.querySelector('.loading')
 let lastDate = document.createElement('div')
@@ -22,7 +24,7 @@ function hideFooterData(){
   lastDate.style.display = 'none'
   lastCountry.style.display = 'none'
   loading.innerHTML = 'Atualizando'
-  loader = document.createElement('div')
+  let loader = document.createElement('div')
   loader.classList.add('loader')
   loading.appendChild(loader)
   loading.style.display = 'inline-block'
@@ -30,9 +32,9 @@ function hideFooterData(){
 
 function updateFooterData(data){
   if(data){
-    loading.style.display = 'none'
     lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
     lastCountry.innerHTML = `País: ${data.country}`
+    loading.style.display = 'none'
     lastDate.style.display = 'inline-block'
     lastCountry.style.display = 'inline-block'
   }else{
