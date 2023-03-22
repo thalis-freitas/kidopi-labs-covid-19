@@ -4,8 +4,8 @@ const COUNTRIES_DATA = {
   totalDeaths: 0,
   states: [],
 
-  getData: async(url) => {
-    return await fetch(url)
+  getData: async(country) => {
+    return await fetch(`https://dev.kidopilabs.com.br/exercicio/covid.php?pais=${country}`)
     .then((response) => response.json())
     .then((data) => {
       return data
@@ -31,5 +31,16 @@ const COUNTRIES_DATA = {
                           confirmed: data[i].Confirmados,
                           dead: data[i].Mortos}
     }
-  }
+  },
+
+  getAllCountries: async() => {
+    return await fetch('https://dev.kidopilabs.com.br/exercicio/covid.php?listar_paises=1')
+    .then((response) => response.json())
+    .then((data) => {
+      return Object.values(data)
+    })
+    .catch((error) => {
+      console.log(`Ops, ocorreu um erro ${error}`)
+    })
+  },
 }

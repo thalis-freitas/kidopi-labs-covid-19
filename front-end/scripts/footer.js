@@ -1,7 +1,9 @@
+"use strict";
+
 let footer = document.querySelector('footer')
 let loading = document.querySelector('.loading')
-let lastDate = document.createElement('div')
-let lastCountry = document.createElement('div')
+let lastDate = document.querySelector('.last-date')
+let lastCountry = document.querySelector('.last-country')
 
 displayDataInFooter()
 
@@ -11,8 +13,8 @@ async function displayDataInFooter(){
     loading.style.display = 'none'
     lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
     lastCountry.innerHTML = `País: ${data.country}`
-    footer.appendChild(lastDate)
-    footer.appendChild(lastCountry)
+    lastDate.style.display = 'block'
+    lastCountry.style.display = 'block'
   }else{
     loading.innerHTML = 'Ops, ocorreu um erro ao carregar os dados'
   }
@@ -21,23 +23,15 @@ async function displayDataInFooter(){
 function hideFooterData(){
   lastDate.style.display = 'none'
   lastCountry.style.display = 'none'
-  loading.innerHTML = 'Atualizando'
-  loader = document.createElement('div')
-  loader.classList.add('loader')
-  loading.appendChild(loader)
-  loading.style.display = 'inline-block'
 }
 
-function updateFooterData(data){
-  if(data){
-    loading.style.display = 'none'
-    lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
-    lastCountry.innerHTML = `País: ${data.country}`
-    lastDate.style.display = 'inline-block'
-    lastCountry.style.display = 'inline-block'
-  }else{
-    loading.innerHTML = 'Ops, ocorreu um erro ao atualizar os dados'
-  }
+function updateFooterData(country, date){
+  hideFooterData()
+  lastDate.innerHTML = `Data: ${formatValue(date)}`
+  lastCountry.innerHTML = `País: ${country}`
+  loading.style.display = 'none'
+  lastDate.style.display = 'inline-block'
+  lastCountry.style.display = 'inline-block'
 }
 
 function formatDateToDisplay(dateTime){

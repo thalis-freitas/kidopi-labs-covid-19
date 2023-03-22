@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./styles/style.css" type="text/css">
   <link rel="stylesheet" href="./styles/states.css" type="text/css">
   <link rel="stylesheet" href="./styles/footer.css" type="text/css">
+  <link rel="stylesheet" href="./styles/compare-countries.css" type="text/css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Patua+One&family=Poppins&display=swap"
@@ -15,20 +16,33 @@
 </head>
 <body>
   <main>
+    <nav class="menu">
+      <a href="./index.html"><img src="./assets/icon-home.png" alt="ícone-página-inicial"></a>
+      <div id="compare-countries">Comparar taxas</div>
+    </nav>
     <h1>Desafio Kidopi Covid 19</h1>
-    <div class="container">
+    <div id="container" class="container">
       <h4>Selecione uma das opções de países abaixo para acessar as informações correspondentes</h4>
       <section id="countries" class="countries-container"></section>
+    </div>
+    <div id="compare-countries-container" class="container">
+      <h4>Selecione dois países para obter a diferença da taxa de morte entre eles</h4>
+      <select id="country1"></select>
+      <select id="country2"></select>
+      <div class="result"></div>
     </div>
   </main>
   <footer>
     <div>Último acesso a API-Covid-19</div>
     <div class="loading">Carregando <div class="loader"></div></div>
+    <div class="last-date"></div>
+    <div class="last-country"></div>
   </footer>
   <script src="./scripts/countries_data.js"></script>
   <script src="./scripts/api_accesses.js"></script>
   <script src="./scripts/footer.js"></script>
   <script src="./scripts/states.js"></script>
   <script src="./scripts/countries.js"></script>
-</body>
+  <script src="./scripts/compare-countries.js"></script>
+</body> 
 </html>

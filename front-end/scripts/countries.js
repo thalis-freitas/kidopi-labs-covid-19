@@ -1,6 +1,6 @@
 "use strict";
 
-let container = document.querySelector('.container')
+let container = document.querySelector('#container')
 
 const MAIN_COUNTRIES = ['Australia', 'Brazil', 'Canada']
 MAIN_COUNTRIES.forEach( country => {
@@ -17,9 +17,9 @@ async function displayDataByCountry(){
     clearAllData()
     this.classList.add('selected-country')
     let country = this.textContent
-    let url = `https://dev.kidopilabs.com.br/exercicio/covid.php?pais=${country}`
-    let data = await prepareCountryDataForDisplay(url, country)
-    await postAccessIfCovidApiAccessIsSuccessful(data, country)
+    let data = await prepareCountryDataForDisplay(country)
+    prepareStatesDataForDisplay(data)
+    postAccessIfCovidApiAccessIsSuccessful(data, country)
   }
   COUNTRIES_DATA.lockMode = false
 }
@@ -58,14 +58,14 @@ function addElementsToDataSection(elements, dataSection){
 }
 
 function clearAllData(){
-  hideFooterData()
   clearDataSection()
   clearStatesSection()
   uncheckCountry()
 }
 
-async function prepareCountryDataForDisplay(url, country){
-  let data = await COUNTRIES_DATA.getData(url)
+async function prepareCountryDataForDisplay(country){
+  let data = await COUNTRIES_DATA.getData(country)
+  updateFooterData(country, new Date())
   if(data){
     COUNTRIES_DATA.setCountryData(data)
     let dataSection = await createDataSection()
@@ -89,13 +89,10 @@ async function prepareStatesDataForDisplay(data){
 
 async function postAccessIfCovidApiAccessIsSuccessful(data, country){
   if(data){
-    await prepareStatesDataForDisplay(data)
-    let lastAccessData = await ACCESSES.postCountry(country)
-    updateFooterData(lastAccessData)
+    await ACCESSES.postCountry(country)
   }else{
     lastDate.style.display = 'inline-block'
     lastCountry.style.display = 'inline-block'
-    loading.style.display = 'none'
   }
 }
 

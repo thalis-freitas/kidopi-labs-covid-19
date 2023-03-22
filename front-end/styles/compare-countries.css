@@ -1,0 +1,60 @@
+.menu{
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  margin: 5px 20px;
+  font-family: 'Patua One', cursive;
+}
+
+#compare-countries{
+  width: 140px;
+  height: 30px;
+  line-height: 30px;
+  background: var(--secondary-bg);
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+
+#compare-countries-container{
+  display: none;
+}
+
+select, .compare-button{
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+select{
+  background: var(--light) url(../assets/seta.png) no-repeat calc(100% - 10px) center;
+  background-size: 4%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 240px;
+}
+
+.compare-button{
+  background: var(--secondary-bg);
+  margin: auto;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+  width: 220px;
+  height: 15px;
+  line-height: 15px;
+}
+
+#compare-countries:hover, .compare-button:hover{
+  background: var(--secondary-bg-light);
+}
+
+option{
+  height: 20px;
+}
+
+.result{
+  max-width: 80%;
+  display: none;
+  padding: 5px 15px;
+  margin: 20px auto;
+  box-shadow: -1px -1px 4px var(--light);
+}

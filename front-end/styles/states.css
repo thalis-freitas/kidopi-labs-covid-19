@@ -11,11 +11,11 @@
 }
 
 span:nth-child(-n+3) {
-  background: #004b2c;
+  background: var(--secondary-bg);
 }
 
 .state-data {
-  background: #006d40;
+  background: var(--secondary-bg-light);
   padding: 5px;
 }
 

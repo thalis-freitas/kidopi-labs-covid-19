@@ -6,11 +6,15 @@ footer {
   display: flex;
   justify-content: space-evenly;
   background: var(--dark);
-  box-shadow: 0 0 12px var(--light);
+  box-shadow: 0 0 3px var(--light);
 }
 
 footer > div {
   padding: 5px;
+}
+
+.last-date, .last-country{
+  display: none;
 }
 
 .loader {

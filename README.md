@@ -5,7 +5,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 ## Sumário
 
   * [Tarefas](#tarefas)
-  * [Tecnologias Utilizadas](#tecnologias-utilizadas)
+  * [Tecnologias utilizadas](#tecnologias-utilizadas)
   * [Configurações necessárias](#configurações-necessárias)
   * [Passo a passo para rodar o projeto](#passo-a-passo-para-rodar-o-projeto)
   * [Documentação da API de acessos](#documentação-da-api-de-acessos)
@@ -21,7 +21,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 
 - [x] 3 - A página deve ser criada utilizando HTML, CSS e JS. Deve exibir no rodapé da página, a data e o país procurado no último acesso à API-Covid-19.
 
-- [ ] Bônus - Criar uma interface web local em que o usuário possa escolher dois países diferentes. Obter os dados de covid desses países escolhidos e mostrar na interface a diferença da taxa de morte entre esses países selecionados (taxa de morte do país todo). Para esse cálculo da diferença utilize de subtração simples (TaxaPais1 - TaxaPais2). A taxa de morte pode ser calculada pela fórmula: Taxa de morte = Mortes / Confirmados.
+- [x] Bônus - Criar uma interface web local em que o usuário possa escolher dois países diferentes. Obter os dados de covid desses países escolhidos e mostrar na interface a diferença da taxa de morte entre esses países selecionados (taxa de morte do país todo). Para esse cálculo da diferença utilize de subtração simples (TaxaPais1 - TaxaPais2). A taxa de morte pode ser calculada pela fórmula: Taxa de morte = Mortes / Confirmados.
 </div>
 
 <h4 align="center">

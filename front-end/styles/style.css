@@ -2,6 +2,8 @@
   --dark: #333131;
   --light: #eee;
   --black: #000;
+  --secondary-bg: #004b2c;
+  --secondary-bg-light: #006d40;
 }
 
 body {
