@@ -1,7 +1,6 @@
 const ACCESSES = {
-  postCountry: async(country_name) => {
-    let currentTime = formatDateForPost()
-    let data = { country: country_name, date_time: currentTime }
+  postCountry: async(country_name, date) => {
+    let data = { country: country_name, date_time: formatDateForPost(date) }
     return await fetch('http://localhost/api/accesses', {
       method: 'POST',
       headers: {
@@ -31,9 +30,9 @@ const ACCESSES = {
   },
 }
 
-formatDateForPost = () => {
-  let currentTime = new Date().toLocaleString().replace(',','')
-  let date = currentTime.split(' ')[0].split("/").reverse().join('-')
-  let time = currentTime.split(' ')[1]
+formatDateForPost = (dateTime) => {
+  dateTime = dateTime.toLocaleString().replace(',','')
+  let date = dateTime.split(' ')[0].split("/").reverse().join('-')
+  let time = dateTime.split(' ')[1]
   return `${date} ${time}`
 }

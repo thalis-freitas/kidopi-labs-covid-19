@@ -58,3 +58,7 @@ option{
   margin: 20px auto;
   box-shadow: -1px -1px 4px var(--light);
 }
+
+.result-text{
+  border-bottom: 3px solid var(--secondary-bg-light);
+}

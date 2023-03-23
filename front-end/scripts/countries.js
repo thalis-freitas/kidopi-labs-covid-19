@@ -19,7 +19,9 @@ async function displayDataByCountry(){
     let country = this.textContent
     let data = await prepareCountryDataForDisplay(country)
     prepareStatesDataForDisplay(data)
-    postAccessIfCovidApiAccessIsSuccessful(data, country)
+    let currentTime = new Date()
+    updateFooterData(country, currentTime)
+    postAccessIfCovidApiAccessIsSuccessful(data, country, currentTime)
   }
   COUNTRIES_DATA.lockMode = false
 }
@@ -65,7 +67,6 @@ function clearAllData(){
 
 async function prepareCountryDataForDisplay(country){
   let data = await COUNTRIES_DATA.getData(country)
-  updateFooterData(country, new Date())
   if(data){
     COUNTRIES_DATA.setCountryData(data)
     let dataSection = await createDataSection()
@@ -87,9 +88,9 @@ async function prepareStatesDataForDisplay(data){
   displayDataByState(statesSection)
 }
 
-async function postAccessIfCovidApiAccessIsSuccessful(data, country){
+async function postAccessIfCovidApiAccessIsSuccessful(data, country, date){
   if(data){
-    await ACCESSES.postCountry(country)
+    await ACCESSES.postCountry(country, date)
   }else{
     lastDate.style.display = 'inline-block'
     lastCountry.style.display = 'inline-block'

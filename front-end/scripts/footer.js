@@ -9,7 +9,7 @@ displayDataInFooter()
 
 async function displayDataInFooter(){
   let data = await ACCESSES.getLastAccess()
-  if(data){
+  if(data && loading.style.display != 'none'){
     loading.style.display = 'none'
     lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
     lastCountry.innerHTML = `País: ${data.country}`
