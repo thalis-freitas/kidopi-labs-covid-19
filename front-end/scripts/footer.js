@@ -5,19 +5,25 @@ let loading = document.querySelector('.loading')
 let lastDate = document.querySelector('.last-date')
 let lastCountry = document.querySelector('.last-country')
 
-displayDataInFooter()
+displayFooter()
 
-async function displayDataInFooter(){
+async function displayFooter(){
   let data = await ACCESSES.getLastAccess()
-  if(data){
-    loading.style.display = 'none'
-    lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
-    lastCountry.innerHTML = `País: ${data.country}`
-    lastDate.style.display = 'block'
-    lastCountry.style.display = 'block'
-  }else{
+  if(data && loading.style.display !== 'none' && Object.keys(data).length !== 0){
+    displayDataInFooter(data)
+  }else if(!data){
     loading.innerHTML = 'Ops, ocorreu um erro ao carregar os dados'
+  }else{
+    loading.innerHTML = 'Nenhuma acesso encontrado'
   }
+}
+
+function displayDataInFooter(data){
+  loading.style.display = 'none'
+  lastDate.innerHTML = `Data: ${formatDateToDisplay(data.date_time)}`
+  lastCountry.innerHTML = `País: ${data.country}`
+  lastDate.style.display = 'block'
+  lastCountry.style.display = 'block'
 }
 
 function hideFooterData(){

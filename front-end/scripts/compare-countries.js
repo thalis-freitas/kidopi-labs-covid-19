@@ -60,8 +60,9 @@ option2.addEventListener('change', async () => {
 
 async function setCountry(country){
   let data = await COUNTRIES_DATA.getData(country.name)
-  updateFooterData(country.name, new Date())
-  postAccessIfCovidApiAccessIsSuccessful(data, country.name)
+  let currentTime = new Date()
+  updateFooterData(country.name, currentTime)
+  postAccessIfCovidApiAccessIsSuccessful(data, country.name, currentTime)
   COUNTRIES_DATA.setCountryData(data)
   country.cases = COUNTRIES_DATA.totalCases
   country.dead = COUNTRIES_DATA.totalDeaths
@@ -84,7 +85,7 @@ function displayResult(country1, country2){
 function setResultElements(elements, result){
   elements[0].innerHTML = `Taxa de morte ${country1.name}: ${country1.deathRate}`
   elements[1].innerHTML = `Taxa de morte ${country2.name}: ${country2.deathRate}`
-  elements[2].innerHTML = `Diferença entre os países: ${result}`
+  elements[2].innerHTML = `Diferença entre os países: <b class="result-text">${result}</b>`
 }
 
 function calculateResult(result){
