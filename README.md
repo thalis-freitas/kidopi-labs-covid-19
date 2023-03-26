@@ -5,6 +5,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 ## Sumário
 
   * [Tarefas](#tarefas)
+  * [Demonstração](#demonstração)
   * [Tecnologias utilizadas](#tecnologias-utilizadas)
   * [Configurações necessárias](#configurações-necessárias)
   * [Passo a passo para rodar o projeto](#passo-a-passo-para-rodar-o-projeto)
@@ -24,9 +25,19 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 - [x] Bônus - Criar uma interface web local em que o usuário possa escolher dois países diferentes. Obter os dados de covid desses países escolhidos e mostrar na interface a diferença da taxa de morte entre esses países selecionados (taxa de morte do país todo). Para esse cálculo da diferença utilize de subtração simples (TaxaPais1 - TaxaPais2). A taxa de morte pode ser calculada pela fórmula: Taxa de morte = Mortes / Confirmados.
 </div>
 
-<h4 align="center">
-:construction: Em desenvolvimento...
-</h4>
+## Demonstração
+
+<div align="center">
+
+ ![Gif para demonstração - mobile](https://github.com/Thalis-Freitas/kidopi-labs-covid-19/blob/708979cc08ec66b092638d4043be0180db893f09/front-end/assets/demo-files/demo.gif)
+
+</div>
+
+<div align="center">
+
+ ![Gif para demonstração - mobile](https://github.com/Thalis-Freitas/kidopi-labs-covid-19/blob/708979cc08ec66b092638d4043be0180db893f09/front-end/assets/demo-files/mobile-demo.gif)
+
+</div>
 
 ## Tecnologias Utilizadas
 
