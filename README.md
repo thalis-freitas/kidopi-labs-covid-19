@@ -75,7 +75,7 @@ Uma aplicação web que possibilita ao usuário obter informações sobre os cas
 5. Execute o comando para configurar o alias do shell que permitirá executar os comandos do Sail com mais facilidade:
 
 ```
- alias sail="vendor/bin/sail"
+ alias sail="./vendor/bin/sail"
 ```
 
 6. Com o Docker Desktop rodando, inicie a app:
